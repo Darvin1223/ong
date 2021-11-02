@@ -15,7 +15,7 @@
 .ftAddresList .icnWrap,
 .ftSocialNetworks a,
 #pageFooter p a {
-	color: #4c6ef5;
+	color: #1e1edd;
 }
 
 .btnTheme.btnNoOver,
@@ -30,7 +30,7 @@
 .reqAsideBlock,
 .ftSocialNetworks a:hover,
 .btnTop:hover {
-	background-color: #4c6ef5;
+	background-color: #1e1edd;
 }
 
 .btnTheme.btnNoOver,
@@ -42,5 +42,5 @@
 .headingHead.hhv2 .headingTitle::after,
 .headingHead::after,
 .tcSocialNetworks a:hover {
-	border-color: #4c6ef5;
+	border-color: #1e1edd;
 }
