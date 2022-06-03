@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head.ejs'); %>
+
+    <body>
+        <div id="pageWrapper">
+            <div class="phStickyWrap">
+                <!-- pageHeader -->
+                <%- include('partials/header.ejs') %>
+            </div>
+         
+        </div>
+        <main>
+			<!-- scrollto4 -->
+			<div id="scrollto3" class="scrolltoblock">
+				<!-- servicesBlock -->
+				<section class="servicesBlock bg-light pt-6 pb-5 pt-md-8 pb-md-9 pt-lg-10 pb-lg-12 pt-xl-14 pb-xl-17 text-center">
+					<div class="container">
+						<!-- headingHead -->
+						<header class="headingHead hhv2 text-center mb-10 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+							<h2>
+								<!-- headingTitle -->
+								<strong class="d-block headingTitle fontBase font-weight-normal">Nuestros Eventos</strong>
+								<!-- <span class="d-block">Ultimos Eventos</span> -->
+							</h2>
+						</header>
+						<% if(eventos.lenght !== 0){ %>
+							<% eventos.forEach(Event => { %>
+								<div class="row justify-content-center wow flipInX" data-wow-duration="1s" data-wow-delay="1s">
+									<div class="col-12 col-md-6 col-lg-4">
+										<!-- serviceColumn -->
+										<article class="serviceColumn rounded bg-white shadow overflow-hidden text-center mb-6 px-3 px-xl-5 py-5 py-xl-8 mx-auto mx-md-0">
+											<div class="imgHolder position-relative mb-16 mx-n3 mt-n5 mx-xl-n5 mt-xl-n8">
+												<img src="<%= Event.image_evento%>" class="img-fluid mw-100 w-100" alt="<%=Event.title_evento%>">
+												
+												
+											</div>
+											<h3 class="mb-4">
+												<a href="#"><%=Event.title_evento%></a>
+											</h3>
+											<p><%= Event.extract_evento%></p>
+											<!-- <a href="/events/<%= Event.urlSeo_evento%>" class="mt-2 btn btn-primary">Saber mas</a> -->
+											<a href="/event?id=<%= Event.id_evento%>" class="mt-2 btn btn-primary">Saber mas</a>
+										
+										</article>
+									</div>
+									
+									
+								</div>
+							<%}); %>  
+						
+						<% } %> 
+						
+					</div>
+				</section>
+			</div>
+				
+        <%- include('partials/footer.ejs') %>
+    </body>
+
+</html>

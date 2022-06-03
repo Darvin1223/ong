@@ -1,0 +1,121 @@
+<main class="main-content position-relative border-radius-lg ">
+  
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-4">
+            <div class="card-header pb-0">
+              <h6>Blogs</h6>
+              <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-plus"></i> Agregar </a>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Titulo del blog</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">URL SEO</th>
+                     
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">fecha</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Accion</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <% if(Blogs.lenght !== 0){ %> 
+                        <% Blogs.forEach(Blog => { %>
+                          <td>
+                            <div class="d-flex px-2 py-1">
+                              <div>
+                                <!-- <img src="admin/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1"> -->
+                              </div>
+                              <div class="d-flex flex-column justify-content-center">
+                                <!-- <h6 class="mb-0 text-sm">John Michael</h6> -->
+                                <p class="text-xs text-secondary mb-0"><%=Blog.title_blog%></p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <p class="text-xs font-weight-bold mb-0"><%=Blog.urlSeo_blog%></p>
+                           
+                          </td>
+                         
+                          <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold"><%= Blog.create_blog %> </span>
+                          </td>
+                          <td class="align-middle">
+                            <!-- <a href="/editBlog?id=<%= Blog.id_blog%> " class="btn btn-secondary font-weight-bold text-xs" data-toggle="tooltip"data-bs-toggle="modal" data-bs-target="#Edit_user" data-original-title="Edit_use">
+                              Edit
+                            </a> -->
+                            <br>
+                            <a href="/deleteBlog/<%=Blog.id_blog%>" class="btn btn-danger font-weight-bold text-xs">
+                              Eliminar
+                            </a>
+                          </td>
+                       <% }); %> 
+                      <% } %> 
+                    </tr> 
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="texto_addUser" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <form method="POST" action="/addBlog" enctype="multipart/form-data">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="texto_addUser">Agregar Blog</h5>
+          <button type="button" class="btn btn-close btn " data-bs-dismiss="modal" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+            <!-- <span aria-hidden="true">&times;</span> -->
+          </button>
+        </div>
+        <div class="modal-body">
+        
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                    <label for="title">Por favor ingrese el titulo</label>
+                  <input type="text" class="form-control" id="title" name="title" placeholder="Titulo Completo">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="Description_blog">Por favor ingrese los datos del Blog</label>
+                  <textarea class="form-control w-100" id="Description" name="Description_blog" placeholder="Description"></textarea>
+                </div>
+              </div>
+             
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="imageBlog">Por favor Seleccione una foto</label>
+                  <input type="file" name="imageBlog" id="imageBlog">
+                </div>
+              </div>
+            </div>
+           
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+          <input class="btn bg-gradient-primary" type="submit" value="Agregar">
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  
+    </div>
+  </main>
+  <link rel="stylesheet" href="admin/richtexteditor/rte_theme_default.css"/>
+<script type="text/javascript" src="admin/richtexteditor/rte.js"></script>
+<script type="text/javascript" src='admin/richtexteditor/plugins/all_plugins.js'></script>
+<script src="admin/js/editor.js"></script>

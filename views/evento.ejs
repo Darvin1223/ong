@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head.ejs'); %>
+
+    <body>
+        <div id="pageWrapper">
+            <div class="phStickyWrap">
+                <!-- pageHeader -->
+                <%- include('partials/header.ejs') %>
+            </div>
+         
+        </div>
+		<main class="py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-9">
+                        <div class="blog-right-sidebar p-3">
+                            <% if(evento){%> 
+                            <div class="card shadow-none bg-transparent">
+                                <img src="<%= evento.image_evento %> " class="card-img-top" alt="<%= evento.title_evento %>">
+                                <div class="card-body p-0">
+                                    <!-- <div class="list-inline mt-4">	<a href="javascript:;" class="list-inline-item"><i class='bx bx-user me-1'></i>By Admin</a> -->
+                                        <!-- <a href="javascript:;" class="list-inline-item"><i class='bx bx-comment-detail me-1'></i>16 Comments</a> -->
+                                        <a href="javascript:;" class="list-inline-item mt-5"><i class='bx bx-calendar me-1'></i><%= evento.create_evento %></a>
+                                    </div>
+                                    <h4 class="mt-4 mb-4 text-center"><%= evento.title_evento %></h4>
+                                    <div class="container">
+                                        <%- evento.content_evento %> 
+                                    </div>
+                                                                      
+                                </div>
+                            </div>
+                            <% } %> 
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <%- include('partials/footer.ejs') %>
+    </body>
+
+</html>
